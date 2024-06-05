@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    table(class='table')
+        thead 
+            tr 
+                th Project ID   
+                th Name 
+                th Description 
+                th Price 
+                th Job Done 
+                th Start Date 
+                th End Date
+                th Team Members 
+                th Actions
+        tbody 
+            - each project, i in projects
+                tr
+                    td= project._id
+                    td= project.name
+                    td= project.description
+                    td= project.price
+                    td= project.jobDone
+                    td= project.startDate
+                    td= project.endDate
+                    td= project.teamMembers
+                    td
+                        form(action='/projects/#{project._id}',method='post',enctype='application/x-www-form-urlencoded')
+                            input(type='hidden',value='DELETE',name='_method')
+                            button(type='submit') Delete
+                        
+                        p
+                            a(href='/project/#{project._id}/edit') Edit
+                        p 
+                            a(href='/project/#{project._id}/show') Show

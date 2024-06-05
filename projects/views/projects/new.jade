@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	div(class="container")
+		h2.
+			#{title}
+
+		form#formAddProject(name="addproject", method="post", action="/project")
+			div(class="form-group row")
+				label(for=name) Name:
+					input#inputName(type="text", placeholder="Name", name="name" class="form-control" required)
+			div(class="form-group row")
+				label(for=description) Description:
+					input#inputDescription(type="text", placeholder="Description", name="description" class="form-control" required)
+			div(class="form-group row")
+				label(for=price) Price:
+					input#inputPrice(type="number", placeholder="100", name="price" class="form-control" required)
+			div(class="form-group row")
+				label(for=jobDone) Job Done:
+					input#inputJobDone(type="text", placeholder="jobDone", name="jobDone" class="form-control" required)
+			div(class="form-group row")
+				label(for=teamMembers) Team Members:
+					input#inputFinishedWorks(type="text" ,placeholder="teamMembers", name="teamMembers" class="form-control" required)
+			div(class="form-group row")
+				label(for=startDate) Start Time:
+					input#inputstartDate(type="date", name="startDate" class="form-control" required)
+			div(class="form-group row")
+				label(for=endDate) End Time:
+					input#inputendDate(type="date", name="endDate" class="form-control" required)
+				p
+					button#btnSubmit(type="submit" class="btn btn-primary") SUBMIT

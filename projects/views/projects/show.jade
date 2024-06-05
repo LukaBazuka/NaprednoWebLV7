@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    h1 Project ID: #{project._id}
+    p Name: #{project.name}
+    p Description: #{project.description}
+    p Price: #{project.price}
+    p Job Done: #{project.jobDone}
+    p StartTime: #{project.startDate}
+    p EndTime: #{project.endDate}
+    p Members:#{project.teamMembers}
+      form(action='/projects/#{project._id}',method='post',enctype='application/x-www-form-urlencoded')
+                              input(type='hidden',value='DELETE',name='_method')
+                              button(type='submit') Delete
+                        
+    p
+      a(href='/project/#{project._id}/edit') Edit

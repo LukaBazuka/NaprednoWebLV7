@@ -1,0 +1,34 @@
+extends layout
+
+block content
+	div(class="container")
+		h2.
+			Project ID: #{project._id}
+
+		form#formUpdateProject(name="updateproject", method="post", action="/project/#{project._id}",enctype='application/x-www-form-urlencoded')
+			div(class="form-group row")
+				label(for=name) Name:
+					input#inputName(type="text",value='#{project.name}', placeholder="Name", name="name" class="form-control" required)
+			div(class="form-group row")
+				label(for=description) Description:
+					input#inputDescription(type="text",value='#{project.description}', placeholder="Description", name="description" class="form-control" required)
+			div(class="form-group row")
+				label(for=price) Price:
+					input#inputPrice(type="number", value='#{project.price}', placeholder="100", name="price" class="form-control" required)
+			div(class="form-group row")
+				label(for=jobDone) Job Done:
+					input#inputFinishedWorks(type="text" ,value='#{project.jobDone}',placeholder="Job Done", name="jobDone" class="form-control" required)
+			div(class="form-group row")
+				label(for=teamMembers) Team Members:
+					input#inputFinishedWorks(type="text" ,value='#{project.teamMembers}',placeholder="teamMembers", name="teamMembers" class="form-control" required)
+			div(class="form-group row")
+				label(for=startDate) Start Time:
+					input#inputStartTime(type="date", value='#{project.startDate}', name="startDate" class="form-control" required)
+			div(class="form-group row")
+				label(for=endDate) End Time:
+					input#inputEndTime(type="date", value='#{project.endDate}', name="endDate" class="form-control" required)
+			p 
+				input(type='hidden',value='PUT',name='_method')
+			p
+				button#btnSubmit(type='submit').
+					Update
